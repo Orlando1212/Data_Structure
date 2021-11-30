@@ -50,7 +50,7 @@ InfoHash::InfoHash(const std::string& chave, const TValor& valor)
 Hash::Hash(unsigned capacidade) // capacidade tem valor default
 	: mVetPtDados(new InfoHash*[capacidade]), REMOVIDO(new InfoHash()), mCapacidade(capacidade), mTamanho(0) {
 	// FALTA FAZER:
-	// inicializar todas as posiÃ§Ãµes de armazenamento com NULL indicando posiÃ§Ã£o VAZIA
+	// inicializar todas as posiÃ§Ãµes de armazenamento com NULL indicando posicao VAZIA
 	for (unsigned i = 0; i < mCapacidade; i++){
 		mVetPtDados[i] = NULL;
 	}
@@ -68,7 +68,7 @@ Hash::~Hash() {
 }
 
 unsigned Hash::Buscar(const std::string& chave) const {
-	// Retorna a posicao em que uma chave estÃ¡ armazenada na estrutura. Protegido.
+	// Retorna a posicao em que uma chave esta armazenada na estrutura. Protegido.
 	unsigned pos = Posicao(chave);
 	unsigned cont = 0;
 	bool encontrado = false;
@@ -102,7 +102,7 @@ unsigned Hash::Buscar(const std::string& chave) const {
 }
 
 void Hash::EscreverEstrutura(std::ostream& saida) const {
-	// Mostra todos as posiÃ§Ãµes de armazenamento da hash. Ajuda a debugar.
+	// Mostra todos as posicoes de armazenamento da hash. Ajuda a debugar.
 	for (unsigned i = 0; i < mCapacidade; ++i) {
 		saida << '[' << i;
 		if (mVetPtDados[i] != NULL) {
@@ -138,7 +138,7 @@ void Hash::Inserir(const string& chave, const TValor& valor) {
 }
 
 unsigned Hash::Posicao(const string& chave) const {
-	// Retorna a posiÃ§Ã£o de armazenamento de uma chave, 0 <= posicao < mCapacidade. Protegido.
+	// Retorna a posicao de armazenamento de uma chave, 0 <= posicao < mCapacidade. Protegido.
 	unsigned pos = 1;
 	unsigned tamanho = unsigned(chave.length());
 
@@ -213,11 +213,11 @@ int main() {
 					break;
 				}
 				default:{
-					cerr << "operaÃ§Ã£o invÃ¡lida\n";
+					cerr << "operacao invalida\n";
 				}
 			}
 		}
-		catch (exception& e){// ignorar a mensagem que explica o erro e sÃ³ escrever ERRO.
+		catch (exception& e){// ignorar a mensagem que explica o erro e escrever ERRO.
 			cout << "ERRO" << endl;
 		}
 	} while (operacao != 'f');
